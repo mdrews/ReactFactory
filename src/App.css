@@ -14,22 +14,18 @@
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(var(--colNum), 38px);
-  width: 402px;
-  height: 402px;
+  grid-template-columns: repeat(var(--colNum), 32px);
+  width: 320px;
+  height: 320px;
 }
 
 .node {
+  background-image: url('../src/images/Grass02.png');
   border: 1px solid #282c34;
   color: tan;
   font-size: 16px;
-  width: 38px;
-  height: 38px;
-}
-
-.node:hover {
-  text-align: center;
-  border: 1px solid black;
+  width: 32px;
+  height: 32px;
 }
 
 .App-header {

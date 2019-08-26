@@ -11,6 +11,9 @@ function DisplayMap(props, addIron) {
     const handleNodeClick = () => {
         props.addIron();
         console.log(props);
+        let w = window.innerWidth;
+        let h = window.innerHeight;
+        console.log('w: ' + w + ', h: ' + h);
     }
 
     const chunkArray = () => {
