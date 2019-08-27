@@ -26,11 +26,12 @@ const newMapChunk = () => {
     let chunk = new Array(10);
     for(let y = 0; y < 10; y++) {
         chunk[y] = new Array(10);
-    for(let x = 0; x < 10; x++) {
-        chunk[y][x] = {x: x, y: y, iron: 10}
+        for(let x = 0; x < 10; x++) {
+            chunk[y][x] = {x: x, y: y, iron: 0}
+        }
     }
+        chunk[4][4].iron = 30;
         return(chunk);
-    }
 }
 
 const state = { map: newMapChunk(), player: {
