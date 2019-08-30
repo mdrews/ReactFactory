@@ -28,11 +28,13 @@ function DisplayMap(props, addIron) {
     // }
     let viewWidth = 5;
     let viewHeight = 5;
-    let playerY = 5;
-    let playerX = 5;
+    console.log('===props===')
+    console.log(props);
+    let playerY = props.characterPosition.y;
+    let playerX = props.characterPosition.x;
     let displayArea = new Array(5);
-    let startY = playerY - Math.ceil(playerY/2);
-    let startX = playerX - Math.ceil(playerX/2);
+    let startY = playerY - Math.floor(playerY/2);
+    let startX = playerX - Math.floor(playerX/2);
     for(let y = 0; y < viewHeight; y++) {
         displayArea[y] = new Array(5);
         for(let x = 0; x < viewWidth; x++) {
@@ -41,7 +43,6 @@ function DisplayMap(props, addIron) {
     }
 
     const columns = '32px '
-    console.log(columns);
     const gridStyle = {
         display: 'grid',
         gridTemplateColumns: columns.repeat(5),

@@ -3,21 +3,40 @@ import React, {useEffect } from 'react';
 import { PlayerStats } from "./playerStats";
 import { DisplayMap } from './displayMap';
 
-// const checkKey = e => {
-//     console.log('key: ' + e.keyCode);
-// }
-
-// useEffect(() => {
-//     document.addEventListener('keydown', checkKey)
-// })
-
 function Interface(props) {
+
+    const handleInput = e => {
+        switch (e.keyCode) {
+            case 87: // W
+                props.moveCharacter(0, 1);
+                break;
+            case 83: // S
+                props.moveCharacter(0, -1);
+                break;
+            case 65: // A
+                props.moveCharacter(1, 0);
+                break;
+            case 68: // D
+                props.moveCharacter(-1, 0);
+                break;
+            default:
+                break;
+        }
+    }
+    
+    useEffect(() => {
+        document.addEventListener('keydown', handleInput);
+        return () => {
+            document.removeEventListener('keydown', handleInput);
+        }
+    });
+
     return(<div>
         <PlayerStats 
-            player={props.player} 
+            player={props.character} 
             
         />
-        <DisplayMap map={props.map} addIron={props.addIron} />
+        <DisplayMap map={props.map} characterPosition={props.character.position} addIron={props.addIron} />
     </div>);
 }
 

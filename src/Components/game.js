@@ -2,14 +2,14 @@ import React from 'react';
 import { connect, Provider } from 'react-redux';
 import { createStore } from 'redux';
 
-import { addIron } from '../actions/index';
+import { addIron, moveCharacter } from '../actions/index';
 import { mapReducer } from '../reducers/index';
 import { Interface } from './interface';
 
 
 const mapStateToProps = (state) => {
     return {
-        player: state.player,
+        character: state.character,
         map: state.map
     }
 }
@@ -18,6 +18,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
         addIron: () => {
             dispatch(addIron());
+        },
+        moveCharacter: (x, y) => {
+            dispatch(moveCharacter(x, y))
         }
     }
 }
@@ -34,9 +37,16 @@ const newMapChunk = () => {
         return(chunk);
 }
 
-const state = { map: newMapChunk(), player: {
-    iron: 0,
-    copper: 0
+const state = { map: newMapChunk(), character: {
+    position: {
+        x: 5,
+        y: 5
+    },
+    inventory: {
+        iron: 0,
+        copper: 0
+    }
+    
 }};
 
 const store = createStore(mapReducer, state);
