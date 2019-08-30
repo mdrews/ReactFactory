@@ -8,9 +8,11 @@ function DisplayMap(props, addIron) {
             setCurrentNode(node);
     }
 
-    const handleNodeClick = () => {
-        props.addIron();
-        //console.log(props);
+    const handleNodeClick = (node) => {
+        if(node.iron > 0) {
+            props.addIron(node);
+        }
+        
         let w = window.innerWidth;
         let h = window.innerHeight;
         //console.log('w: ' + w + ', h: ' + h);
@@ -59,10 +61,9 @@ function DisplayMap(props, addIron) {
         <div className='grid-container' style={gridStyle}>
         {chunk.map(row => {
             return row.map(node => {
-                let ironClass = node.iron > 0 ? `classname='iron'` : '';
-                return(<div className='node'  
+                return(<div  
                         className={node.iron > 0 ? 'node iron' : 'node'}
-                        onClick={handleNodeClick} 
+                        onClick={() => handleNodeClick(node)} 
                         onMouseOver={() => handleHover(node)}>{node.y}, {node.x}</div>)
             })
         })}

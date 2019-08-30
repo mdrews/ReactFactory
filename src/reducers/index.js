@@ -1,4 +1,5 @@
 import { ADDIRON, MOVE } from '../actions/type';
+import { nodeInternals } from 'stack-utils';
 
 const state = {
     character: {
@@ -10,10 +11,10 @@ const state = {
 const mapReducer = (state = {}, action) => {
     switch(action.type) {
         case ADDIRON:
-
-            //console.log(state.character.position);
-            //console.log(state);
-            return { ...state,
+            console.log(state.map);
+            let newMap = state.map;
+            newMap[action.node.y][action.node.x].iron--;
+            return {    map: newMap,
                         character: {
                             position: state.character.position,
                             inventory: {
@@ -22,8 +23,6 @@ const mapReducer = (state = {}, action) => {
                             }
                         }}
         case MOVE:
-            // console.log(state);
-            // console.log(action.coords);
             return {
                 ...state,
                     character: {

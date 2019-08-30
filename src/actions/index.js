@@ -1,8 +1,9 @@
 import { ADDIRON, MOVE } from './type';
 
-const addIron = () => {
+const addIron = (node) => {
     return {
-        type: ADDIRON
+        type: ADDIRON,
+        node
     }
 };
 

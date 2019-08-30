@@ -16,8 +16,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        addIron: () => {
-            dispatch(addIron());
+        addIron: (node) => {
+            dispatch(addIron(node));
         },
         moveCharacter: (x, y) => {
             dispatch(moveCharacter(x, y))
