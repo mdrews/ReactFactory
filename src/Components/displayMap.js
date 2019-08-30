@@ -10,10 +10,10 @@ function DisplayMap(props, addIron) {
 
     const handleNodeClick = () => {
         props.addIron();
-        console.log(props);
+        //console.log(props);
         let w = window.innerWidth;
         let h = window.innerHeight;
-        console.log('w: ' + w + ', h: ' + h);
+        //console.log('w: ' + w + ', h: ' + h);
     }
 
     // const chunkArray = () => {
@@ -28,8 +28,8 @@ function DisplayMap(props, addIron) {
     // }
     let viewWidth = 5;
     let viewHeight = 5;
-    console.log('===props===')
-    console.log(props);
+    //console.log('===props===')
+    //console.log(props);
     let playerY = props.characterPosition.y;
     let playerX = props.characterPosition.x;
     let displayArea = new Array(5);
@@ -59,7 +59,11 @@ function DisplayMap(props, addIron) {
         <div className='grid-container' style={gridStyle}>
         {chunk.map(row => {
             return row.map(node => {
-                return(<div className='node' onClick={handleNodeClick} onMouseOver={() => handleHover(node)}>{node.y}, {node.x}</div>)
+                let ironClass = node.iron > 0 ? `classname='iron'` : '';
+                return(<div className='node'  
+                        className={node.iron > 0 ? 'node iron' : 'node'}
+                        onClick={handleNodeClick} 
+                        onMouseOver={() => handleHover(node)}>{node.y}, {node.x}</div>)
             })
         })}
         </div>

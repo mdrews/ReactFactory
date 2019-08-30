@@ -33,8 +33,7 @@ function Interface(props) {
 
     return(<div>
         <PlayerStats 
-            player={props.character} 
-            
+            character={props.character.inventory} 
         />
         <DisplayMap map={props.map} characterPosition={props.character.position} addIron={props.addIron} />
     </div>);

@@ -33,8 +33,8 @@ const newMapChunk = () => {
             chunk[y][x] = {x: x, y: y, iron: 0}
         }
     }
-        chunk[4][4].iron = 30;
-        return(chunk);
+    chunk[4][4].iron = 30;
+    return(chunk);
 }
 
 const state = { map: newMapChunk(), character: {

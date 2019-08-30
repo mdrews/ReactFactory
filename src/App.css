@@ -22,6 +22,10 @@
   width: 32px;
   height: 32px;
 }
+.iron {
+  background-image: url('../src/images/mountain.png'), url('../src/images/Grass02.png');
+  color: blue;
+}
 
 .App-header {
   background-color: #282c34;

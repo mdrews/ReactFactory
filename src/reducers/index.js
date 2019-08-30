@@ -10,17 +10,24 @@ const state = {
 const mapReducer = (state = {}, action) => {
     switch(action.type) {
         case ADDIRON:
+
+            //console.log(state.character.position);
+            //console.log(state);
             return { ...state,
                         character: {
-                            iron: state.character.iron+1
+                            position: state.character.position,
+                            inventory: {
+                                copper: state.character.inventory.copper,
+                                iron: state.character.inventory.iron+1
+                            }
                         }}
         case MOVE:
-            console.log(state);
-            console.log(action.coords);
+            // console.log(state);
+            // console.log(action.coords);
             return {
                 ...state,
                     character: {
-                        ...state.character.inventory,
+                        inventory: state.character.inventory,
                         position: {
                             x: state.character.position.x-action.coords.x,
                             y: state.character.position.y-action.coords.y
